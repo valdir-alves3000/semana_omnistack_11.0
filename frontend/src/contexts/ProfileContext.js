@@ -1,4 +1,5 @@
 import { createContext, useState, useEffect } from 'react';
+import Cookies from 'js-cookie';
 
 import { useRouter } from 'next/router';
 import api from '../services/api';
@@ -10,8 +11,8 @@ export function ProfileProvider({
   ...rest
 }) {
   const [incidents, setIncidents] = useState([]);
-  const ongId = localStorage.getItem('ongId');
-  const ongName = localStorage.getItem('ongName');
+  const ongId = Cookies.get('ongId');
+  const ongName = Cookies.get('ongName');
 
   const router = useRouter();
 

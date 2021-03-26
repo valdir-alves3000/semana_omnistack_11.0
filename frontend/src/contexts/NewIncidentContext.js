@@ -1,4 +1,5 @@
 import { createContext, useState } from 'react';
+import Cookies from 'js-cookie';
 
 import { useRouter } from 'next/router';
 import api from '../services/api';
@@ -13,7 +14,7 @@ export function NewIncidentProvider({
   const [description, setDescription] = useState('');
   const [value, setValue] = useState('');
 
-  const ongId = localStorage.getItem('ongId');
+  const ongId = Cookies.get('ongId');
 
   const router = useRouter();
   

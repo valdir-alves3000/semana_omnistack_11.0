@@ -1,5 +1,7 @@
 import { createContext, useState } from 'react';
 import { useRouter } from 'next/router';
+
+import Cookies from 'js-cookie';
 import api from '../services/api';
 
 export const LoginContext = createContext({});
@@ -23,8 +25,8 @@ export function LoginProvider({
     try {
       const response = await api.post('session', {id, password});
 
-      localStorage.setItem('ongId', id);
-      localStorage.setItem('ongName', response.data.name);
+      Cookies.set('ongId', id);
+      Cookies.set('ongName', response.data.name);
 
       router.push('/Profile')
       
