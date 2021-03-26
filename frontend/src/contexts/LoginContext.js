@@ -1,4 +1,4 @@
-import { createContext, useState } from 'react';
+import { createContext, useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import api from '../services/api';
 
@@ -32,6 +32,13 @@ export function LoginProvider({
       alert('Falha no login, tente novamente')
     }
   }
+
+useEffect(() => {
+      localStorage.setItem('ongId', id);
+      localStorage.setItem('ongName', '');
+
+
+},[]);
 
   return (
     <LoginContext.Provider
