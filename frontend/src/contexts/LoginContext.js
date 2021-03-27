@@ -23,7 +23,7 @@ export function LoginProvider({
     }
 
     try {
-      const response = await api.post('sessions', {id, password});
+      const response = await api.post('session', {id, password});
 
       Cookies.set('ongId', id);
       Cookies.set('ongName', response.data.name);
@@ -34,13 +34,6 @@ export function LoginProvider({
       alert('Falha no login, tente novamente')
     }
   }
-
-useEffect(() => {
-      localStorage.setItem('ongId', id);
-      localStorage.setItem('ongName', '');
-
-
-},[]);
 
   return (
     <LoginContext.Provider
