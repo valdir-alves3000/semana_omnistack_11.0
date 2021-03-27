@@ -23,7 +23,7 @@ export function LoginProvider({
     }
 
     try {
-      const response = await api.post('session', {id, password});
+      const response = await api.post('sessions', {id, password});
 
       Cookies.set('ongId', id);
       Cookies.set('ongName', response.data.name);
